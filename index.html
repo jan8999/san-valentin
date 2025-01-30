@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial Narrow, sans-serif;
+            background: linear-gradient(to right, #ff69b4, #8a2be2); /* Fondo en gradiente rosa a morado */
+            color: #d32f2f;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Asegura que los elementos estén distribuidos verticalmente */
+            align-items: center;
+            padding: 20px;
+        }
+        .titulo {
+            font-family: 'Bread And Butter', cursive;
+            font-size: 55px;
+            margin-top: 50px;
+            color: white;
+        }
+        h2 {
+            margin-top: 20px;
+            color: white;
+        }
+        .boton-container {
+            display: flex;
+            justify-content: center; /* Alinea los botones en fila */
+            gap: 15px; /* Espacio entre los botones */
+            margin-top: 20px;
+        }
+        .boton {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .boton:hover {
+            background-color: #c2185b;
+        }
+        .gif {
+            width: 250px;
+            margin-top: 20px;
+            border-radius: 10px;
+            align-self: center; /* Centra la imagen horizontalmente */
+            margin-bottom: 20px; /* Añade un pequeño margen abajo */
+        }
+        .heart {
+            position: fixed;
+            font-size: 24px;
+            color: red;
+            animation: float 2s ease-out forwards;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+        /* Estilo para la carta */
+        .carta {
+            display: none;
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin-top: 20px;
+            border: 2px solid #e91e63;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="titulo">¿Quieres ser Mi San Valentin?</h1>
+
+    <h2>Página creada solo para Angel Adrian Martinez Garcia</h2>
+    
+    <img src="kiss.gif" alt="kiss.gif" class="gif">
+
+    <div class="boton-container">
+        <button class="boton" onclick="showHearts()">Sí ❤️</button>
+        <button class="boton" onclick="showHearts()">Sí y sí ❤️</button>
+        <button class="boton" onclick="openLetter()">Sí mi vida ❤️</button>
+    </div>
+
+    <!-- La carta con el mensaje bonito -->
+    <div class="carta" id="carta">
+        <p>Angel Adrian Martinez Garcia</p>
+        <p>Gracias por ser parte de mi vida. Eres una persona increíble y me haces muy feliz. Siempre te voy a valorar y a cuidar. ¡Te quiero mucho! Te hice esta pagina con mucho amor. </p>
+        <p>Con todo mi amor para ti,</p>
+        <p>Tu linda Novia Jann.</p>
+    </div>
+
+    <script>
+        function showHearts() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.className = "heart";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 50 + 50 + "vh";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 2000);
+            }
+        }
+
+        function openLetter() {
+            // Mostrar la carta
+            document.getElementById("carta").style.display = "block";
+            // Mostrar corazones
+            showHearts();
+        }
+    </script>
+
+</body>
+</html>
